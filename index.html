@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!-- saved from url=(0017)http://localhost/ -->
+<html class="no-js">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<title>様々な入力フォームページ</title>
+	<div style="background: url(photoA.jpg);">
+</head>
+
+
+<body onLoad="init();" bgcolor="white"><font face=sans-serif>
+<br>
+<form id="smartReceptionForm">
+
+
+<table frame="box" rules="all" width="50%" height="200" align="center"><font color="black" size="5">
+	<tr valign="top" bgcolor="white"></tr>
+	<tr valign="middle">
+		<td bgcolor="#FAEBD7"><span><b><font size="5" face=sans-serif>
+		　様々な入力フォーム<br>
+		<font size="2" face=sans-serif>
+		　勉強のため、入力フォームを複数作成しました。<br>
+		　
+		　</font></b></span><br>
+	</tr>
+
+
+	<tr valign="middle">
+		<td bgcolor="#FAEBD7"><span><b><font size="3" face=sans-serif><br>
+		　薄く文字が入っているテキストボックス。<br>
+		　入力しても、特に何も起こりません。<br>
+		　<div id="form_area">
+		　<input type="text" id="inputform_0" placeholder="titleを入力してください"><br><br>
+	</tr>
+
+
+	<tr valign="top" bgcolor="white"></tr>
+	<tr valign="middle">
+		<td bgcolor="#FAEBD7"><span><b><font size="3" face=sans-serif><br>
+		　セレクトボックス。<br>
+		　選択しても、特に何も起こりません。<br><br>
+		　<select>
+    	<option value="select01">select 1</option>
+    	<option value="select02">select 2</option>
+    	<option value="select03">select 3</option>
+		</select>
+		<br>　</font></b></span><br>
+	</tr>
+
+
+	<tr valign="middle">
+		<td bgcolor="#FAEBD7"><span><b><font size="3" face=sans-serif><br>
+		　下記のテキストボックスにメールアドレスを入力してください。<br>
+		　@を入力しないとエラーになります。<br>
+		　送信ボタンを押下し、一致すればテキストボックスがクリアになります。<br><br>
+		<div class="well well-sm">
+		<form> <div>
+    		<label for="email_2">　メール　　　:</label>
+    		<input type="email" id="email_2" required /></div><div>
+    		<label for="emailConfirm_2">　メール確認用:</label>
+    		<input type="email" id="emailConfirm_2" required oninput="CheckEmail_2(this)" />
+    	</div><p>　
+    		<input type="submit" id="submit"> </p>
+		</form>
+
+
+	<tr valign="middle">
+		<td bgcolor="#FAEBD7"><span><b><font size="3" face=sans-serif><br>
+		　下記のテキストボックスにパスワードを入力してください。<br>
+		　送信ボタンを押下し、一致すればテキストボックスがクリアになります。<br><br>
+		<div class="well well-sm">
+		<form>
+		<div id="errorMessage"></div>
+			<label for="password">　パスワード　　　:</label>
+			<input type="password" name="password" id="password" required><br>
+			<label for="passwordConfirm">　パスワード確認用:</label>
+			<input type="password" name="confirm" id="confirm" oninput="CheckPassword(this)"><br><br>　
+			<input type="submit" value="送信"></p>
+		</form>
+		</div>
+
+	<td><div style="color=black; heigh:0px; width:0px; font-size:0px;" id="keta_lbl"></div></td>
+		<tr valign="middle" bgcolor="white">
+		<td bgcolor="#FAEBD7"><span><b><font size="3" face=sans-serif><br>
+		　下記のテキストボックスに任意の文字を入力してください。<br>
+		　その後、copyボタンを押下すると、テキストボックスに入力した文字を取得します。
+		　<div style="color:#808080">　※copyボタンを押下したとき、稀に次のテキストボックスに同じ文字列が入力されてしまうことがあります。</div></font></b></span><br>
+		　<input id="searchKeyword" name="searchKeyword" style="ime-mode: disabled; width:200px; font-size:20px; background-color:white; color:Red;  type="text" value="" size="45" maxlength="100"><br></br>
+		　<button style="color=black; heigh:50px; width:60px; font-size:20px;" onclick="copyToClipboard()">copy</button><br></br>
+		<div hidden><input type="button" class="button" id="buttonSearch" name="search" value="検索"></div>
+		</tr>
+
+
+	<tr valign="top" bgcolor="white">
+		</tr>
+		<tr valign="middle">
+		<td bgcolor="#FAEBD7"><span><b><font size="3" face=sans-serif><br>
+		　下記のテキストボックスに5桁の文字を貼り付けてください。<br>
+		　5桁以外を入力するとエラーメッセージが表示されます。</font></b></span><br>
+		　<font size="6" color="Red"><input type="text" maxlength="10" style="width:200px; font-size:20px; background-color:white; color:Red;"  id="keta_input" onInput="NoCopy()"></font><br></br>
+		</tr>
+
+
+
+
+	<td bgcolor="#FAEBD7"><span><b><font size="3" face=sans-serif>　フリーに入力できるテキストボックスです。<br>
+		　上下左右に広がります。</font></b></span><br>　
+		<textarea cols="30" rows="5" ></textarea>
+
+
+
+</table>
+<BR><BR>
+</form>
+<script>
+	<!--
+	function CheckEmail_2(einput){
+	    var mail = document.getElementById("email_2").value; //メールフォームの値を取得
+		var mailConfirm = einput.value; //メール確認用フォームの値を取得(引数einput)
+    	if(mail != mailConfirm){
+    	  einput.setCustomValidity('メールアドレスが一致しません'); // エラーメッセージ
+    	}else{
+    	  einput.setCustomValidity(''); // エラーメッセージのクリア
+    	}
+  		}
+		// -->
+
+
+
+        function CheckPassword(confirm){
+            var input1 = password.value;
+            var input2 = confirm.value;
+ 
+            if (input1 != input2){
+                confirm.setCustomValidity("入力値が一致しません");
+            } else{
+                confirm.setCustomValidity('');
+            }
+        }
+
+
+	function copyToClipboard(){
+		//alert("copyToClipboard2");
+		var copyTarget = document.getElementById("searchKeyword");
+		copyTarget.select();
+		document.execCommand("Copy");
+		alert("文字をコピーしました！ : " + copyTarget.value);
+		document.getElementById("keta_input").value = document.getElementById("searchKeyword").value;
+		//alert("コピー１");
+		document.getElementById("keta_lbl").innerText = document.getElementById("keta_input").value;
+		//alert("コピー２");
+	};
+
+
+
+	function NoCopy(){
+		NoText = document.getElementById("keta_input").value;
+		NoLen = NoText.length;
+		if ( NoLen == 5 ) {
+			document.getElementById("keta_lbl").innerText = document.getElementById("keta_input").value;
+		} else if ( NoLen == 0 ) {
+		} else {
+			document.getElementById("keta_lbl").innerText = "";
+			alert('文字は5桁で貼り付けてください');
+			document.getElementById("keta_input").value = "";
+			
+		}
+	};
+
+</script>
+</body>
+</html>
