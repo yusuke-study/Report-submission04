@@ -24,8 +24,8 @@
 		　様々な入力フォーム<br>
 		<font size="2" face=sans-serif>
 		　勉強のため、入力フォームを複数作成しました。<br>
-		　ただの入力フォ－ムながら、少し工夫しているもの、条件を満たさないとエラーになる設定で作っています。<br>
-		　順次追加を予定。<br>
+		　ただの入力フォ－ムながら、少し工夫しているもの、条件を満たさないとエラーになる設定等を作成しています。<br>
+		　更に追加したい機能があるため、完成次第追加を予定。<br>
 		　</font></b></span><br>
 	</tr>
 
@@ -88,7 +88,7 @@
 		<tr valign="middle" bgcolor="white">
 		<td bgcolor="#FAEBD7"><span><b><font size="3" face=sans-serif><br>
 		　下記のテキストボックスに任意の文字を入力してください。<br>
-		　その後、copyボタンを押下すると、テキストボックスに入力した文字を取得します。
+		　その後、copyボタンを押下すると、テキストボックスに入力した文字を取得し、Ctrl＋V等で貼り付け可能になります。
 		　<div style="color:#808080">　※copyボタンを押下したとき、稀に次のテキストボックスに同じ文字列が入力されてしまうことがあります。</div></font></b></span><br>
 		　<input id="searchKeyword" name="searchKeyword" style="ime-mode: disabled; width:200px; font-size:20px; background-color:white; color:Red;  type="text" value="" size="45" maxlength="100"><br></br>
 		　<button style="color=black; heigh:50px; width:60px; font-size:20px;" onclick="copyToClipboard()">copy</button><br></br>
@@ -106,13 +106,9 @@
 		</tr>
 
 
-
-
 	<td bgcolor="#FAEBD7"><span><b><font size="3" face=sans-serif>　フリーに入力できるテキストボックスです。<br>
 		　上下左右に広がります。</font></b></span><br>　
 		<textarea cols="30" rows="5" ></textarea>
-
-
 
 </table>
 <BR><BR>
@@ -129,8 +125,6 @@
     	}
   		}
 		// -->
-
-
 
         function CheckPassword(confirm){
             var input1 = password.value;
@@ -157,7 +151,6 @@
 	};
 
 
-
 	function NoCopy(){
 		NoText = document.getElementById("keta_input").value;
 		NoLen = NoText.length;
@@ -167,8 +160,7 @@
 		} else {
 			document.getElementById("keta_lbl").innerText = "";
 			alert('文字は5桁で貼り付けてください');
-			document.getElementById("keta_input").value = "";
-			
+			document.getElementById("keta_input").value = "";		
 		}
 	};
 
